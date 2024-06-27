@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Time Models</h1>
+  <ul>
+    {% for time_model in time_models %}
+      <li>
+        <h2>{{ time_model.name }}</h2>
+        <img src="{{ time_model.image.url }}" alt="{{ time_model.name }}">
+        <p>{{ time_model.description }}</p>
+        <p>${{ time_model.price_per_hour }} per hour</p>
+        <a href="{% url 'book_time' time_model.id %}">Book Now</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
